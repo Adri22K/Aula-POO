@@ -7,30 +7,13 @@ public class Livro extends AbstractEntity {
   private String autor;
 
   private int numPaginas;
-  
-  private String nomeCliente;
-  
-  private String cpf;
-  
-  private int tempCliente;
-  
-  public Cliente(String nomeCliente, String cpf, int tempCliente) {
-    this.nomeCliente = nomeCliente;
-    this.cpf = cpf;
-    this.tempCliente = tempCliente;
-  }
+
+  private int aluguel;
 
   public Livro(String titulo, String autor, int numPaginas) {
     this.titulo = titulo;
     this.autor = autor;
     this.numPaginas = numPaginas;
-  }
-  
-  public Cliente(int idCliente, String nomeCliente, String cpf, int tempCliente){
-    super.setId(idCliente);
-    this.nomeCliente = nomeCliente;
-    this.cpf = cpf;
-    this.tempCliente = tempCliente;
   }
 
   public Livro(int id, String titulo, String autor, int numPaginas) {
@@ -38,30 +21,6 @@ public class Livro extends AbstractEntity {
     this.titulo = titulo;
     this.autor = autor;
     this.numPaginas = numPaginas;
-  }
-  
-  public String getNomeCliente(){
-    return nomeCliente;
-  }
-  
-  public void setNomeCliente(String nomeCliente){
-    this.nomeCliente = nomeCliente;
-  }
-  
-  public String getCpf(){
-    return cpf;
-  }
-    
-  public void setCpf(String cpf){
-    this.cpf = cpf;
-  } 
-  
-  public int getTempCliente(){
-    return tempCliente;
-  }
-  
-  public void setTempCliente(){
-    this.tempCliente;
   }
 
   public String getTitulo() {
@@ -86,5 +45,13 @@ public class Livro extends AbstractEntity {
 
   public void setNumPaginas(int numPaginas) {
     this.numPaginas = numPaginas;
+  }
+
+  public int aluguel(){
+    return aluguel;
+  }
+
+  public void setAluguel(int aluguel){
+    this.aluguel = aluguel;
   }
 }
