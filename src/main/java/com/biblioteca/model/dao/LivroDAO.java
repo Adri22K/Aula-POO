@@ -36,10 +36,10 @@ public class LivroDAO implements IDAO<Livro> {
     throw new UnsupportedOperationException("Unimplemented method 'listar'");
   }
 
-    @Override
-    public void alugar(Livro livro) {
-      // lógica para marcar o livro como alugado
-    }
+  @Override
+  public void alugar(int aluguel){
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'alugar'");
+  }
+
 }
-
-
