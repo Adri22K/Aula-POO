@@ -1,4 +1,3 @@
-
 package com.biblioteca;
 
 import java.util.List;
@@ -7,11 +6,13 @@ import java.util.Scanner;
 import com.biblioteca.controller.LivroController;
 import com.biblioteca.model.entity.Livro;
 import com.biblioteca.view.LivroView;
-     
+
 public class SistemaBiblioteca {
   private LivroController livroController;
   private LivroView livroView;
   private Scanner scanner;
+  public int aluguel;
+
 
   public SistemaBiblioteca(LivroController livroController, LivroView livroView, Scanner scanner) {
     this.livroController = livroController;
@@ -26,25 +27,25 @@ public class SistemaBiblioteca {
       opcao = scanner.nextInt();
       switch (opcao) {
         case 1:
-        cadastrarLivro();
+          cadastrarLivro();
           break;
         case 2:
-        listarLivros();
+          listarLivros();
           break;
         case 3:
-        atualizarLivro();
+          atualizarLivro();
           break;
         case 4:
-        alugarLivro();         
+          excluirLivro();
           break;
         case 5:
-        excluirLivro();
+          buscarLivro();
           break;
         case 6:
-        buscarLivro();
-          break;
+          alugarLivro();
+           break; 
         case 7:
-        devolverLivro();
+          devolverLivro();
           break;
         case 0:
           livroView.mostrarMensagem("Saindo do sistema...");
@@ -59,12 +60,12 @@ public class SistemaBiblioteca {
   private void mostrarMenu() {
     livroView.mostrarMensagem("=== Menu ===");
     livroView.mostrarMensagem("1. Cadastrar Livro");
-    livroView.mostrarMensagem("2.  Listar Livros");
+    livroView.mostrarMensagem("2. Listar Livros");
     livroView.mostrarMensagem("3. Atualizar Livro");
-    livroView.mostrarMensagem("4. Alugar Livro");
-    livroView.mostrarMensagem("5. Excluir Livro");
-    livroView.mostrarMensagem("6. Buscar Livro");
-    livroView.mostrarMensagem("7. Devolver Livro");
+    livroView.mostrarMensagem("4. Excluir Livro");
+    livroView.mostrarMensagem("5. Buscar livo");
+    livroView.mostrarMensagem("6. Alugar livro");
+    livroView.mostrarMensagem("7. Devolver livro");
     livroView.mostrarMensagem("0. Sair");
     livroView.mostrarMensagem("============");
     livroView.mostrarMensagem("Escolha uma opção:");
@@ -121,7 +122,7 @@ public class SistemaBiblioteca {
   }
 
   private void buscarLivro() {
-    livroView.mostrarMensagem("Digite o ID do livro a ser buscado: ");
+    livroView.mostrarMensagem("Digite o ID do livro a ser buscado:");
     int id = scanner.nextInt();
     Livro livro = livroController.buscarLivro(id);
     if (livro != null) {
@@ -130,12 +131,37 @@ public class SistemaBiblioteca {
       livroView.mostrarMensagem("Livro não encontrado!");
     }
   }
-
-  private void alugarLivro(){
-    livroView.mostrarMensagem("Digite o ID do livro a ser alugado: ");
-    int id = scanner.nextInt();
-    Livro livro = livroController.alugarLivro(id);
-  }
   
-
+  public void alugarLivro(){
+    livroView.mostrarMensagem("Qual digite o ID do livro que deseja alugar: ");
+    int id = scanner.nextInt();
+    Livro livro = livroController.buscarLivro(id);
+    if (livro != null) {
+      livroView.mostrarMensagem("Livro encontrado. Deseja alugar? Digite 0- Sim ou 1- Não");
+      aluguel = scanner.nextInt();
+      if(aluguel == 0){
+        livroView.mostrarMensagem("Livro alugado com sucesso.");
+      }else{
+        livroView.mostrarMensagem("Livro não alugado.");
+      }
+    } else {
+      livroView.mostrarMensagem("Livro não encontrado!");
+    }
+  }
+  private void devolverLivro(){
+    livroView.mostrarMensagem("Qual digite o ID do livro que deseja devolver: ");
+    int id = scanner.nextInt();
+    Livro livro = livroController.buscarLivro(id);
+    if (livro != null) {
+        livroView.mostrarMensagem("Livrro encontrado.  Deseja devolver? Digite 1- Sim ou 2- Não");
+        if(aluguel == 0){
+          livroView.mostrarMensagem("Livro devolvido com sucesso.");
+        }
+        else{
+          livroView.mostrarMensagem("Aluguel renovado com sucesso.");
+        }
+    } else {
+      livroView.mostrarMensagem("Livro não foi alugado anteriormente.");
+    }
+  }
 }
