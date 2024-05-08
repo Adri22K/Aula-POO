@@ -46,7 +46,16 @@ Com as seguintes configurações:
 - Java – 17
 - Dependencies – H2 Database
 
+<h1> 👤 Integrantes </h1>
+<h3>Curso: Sistemas de Informação </h3>
+3° Semestre - Noturno
 
+- Adrielle Stollemberger RGM: 33948844
+- Victor Almeida RGM: 32901321
+- Nicolas Santos Silva RGM: 3287380
+- Samir Abdul Khalek RGM: 32657994
+- João Pedro Garcia Almeida RGM: 32847629
+- Eudenis de Souza Vieira RGM: 32751621
 
 
 
