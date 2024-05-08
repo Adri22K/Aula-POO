@@ -36,4 +36,9 @@ public class LivroController {
     return livroDAO.listar();
   }
   
+  public String alugarLivro(int aluguel) {
+    livroDAO.alugar(aluguel);
+    return "Livro alugado";
+}
+
 }
