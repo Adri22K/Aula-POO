@@ -12,7 +12,7 @@ public interface IDAO<T extends AbstractEntity> {
 
   void excluir(int id);
 
-  void alugar(T item);
+  void alugar(int aluguel);
 
   T buscar(int id);
 
