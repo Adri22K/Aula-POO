@@ -2,15 +2,22 @@ package  com.biblioteca.model.entity;
 
 public abstract class AbstractEntity {
   private int id;
-  private int idCliente;
+  private int aluguel;
 
   public int getId() {
     return id;
   }
 
-  public int getIdCliente() {
-    return idCliente;
+  public void setId(int id) {
+    this.id = id;
+  }
 
+  public int getID(){
+    return aluguel;
+  }
+
+  public void setID(int aluguel){
+    this.aluguel = aluguel;
   }
 
 }
