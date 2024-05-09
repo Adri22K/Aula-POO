@@ -1,0 +1,72 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+package com.biblioteca.config;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class DBConfig {
+   private static final String URL = "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1";
+   private static final String USER = "sa";
+   private static final String PASSWORD = "";
+
+   public DBConfig() {
+   }
+
+   public static Connection getConnection() throws SQLException {
+      return DriverManager.getConnection("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1", "sa", "");
+   }
+
+   public static void createTables() {
+      try {
+         Throwable var0 = null;
+         Object var1 = null;
+
+         try {
+            Connection conn = getConnection();
+
+            try {
+               Statement stmt = conn.createStatement();
+
+               try {
+                  String sql = "CREATE TABLE IF NOT EXISTS Livro (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  titulo VARCHAR(255) NOT NULL,\n  autor VARCHAR(255) NOT NULL,\n  num_paginas INT NOT NULL\n)";
+                  stmt.executeUpdate(sql);
+               } finally {
+                  if (stmt != null) {
+                     stmt.close();
+                  }
+
+               }
+            } catch (Throwable var18) {
+               if (var0 == null) {
+                  var0 = var18;
+               } else if (var0 != var18) {
+                  var0.addSuppressed(var18);
+               }
+
+               if (conn != null) {
+                  conn.close();
+               }
+
+               throw var0;
+            }
+
+            if (conn != null) {
+               conn.close();
+            }
+         } catch (Throwable var19) {
+            if (var0 == null) {
+               var0 = var19;
+            } else if (var0 != var19) {
+               var0.addSuppressed(var19);
+            }
+
+            throw var0;
+         }
+      } catch (SQLException var20) {
+         var20.printStackTrace();
+      }
+
+   }
+}
