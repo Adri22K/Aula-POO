@@ -1,0 +1,26 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+package com.biblioteca.model.entity;
+
+public abstract class AbstractEntity {
+   private int id;
+   private int aluguel;
+
+   public AbstractEntity() {
+   }
+
+   public int getId() {
+      return this.id;
+   }
+
+   public void setId(int id) {
+      this.id = id;
+   }
+
+   public int getID() {
+      return this.aluguel;
+   }
+
+   public void setID(int aluguel) {
+      this.aluguel = aluguel;
+   }
+}
