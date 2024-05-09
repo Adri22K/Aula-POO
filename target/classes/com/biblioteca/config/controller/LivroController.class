@@ -1,0 +1,42 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+package com.biblioteca.controller;
+
+import com.biblioteca.model.dao.IDAO;
+import com.biblioteca.model.entity.Livro;
+import java.util.List;
+
+public class LivroController {
+   private final IDAO<Livro> livroDAO;
+
+   public LivroController(IDAO<Livro> livroDAO) {
+      this.livroDAO = livroDAO;
+   }
+
+   public String cadastrarLivro(Livro livro) {
+      this.livroDAO.cadastrar(livro);
+      return "Livro cadastrado com sucesso!";
+   }
+
+   public String atualizarLivro(Livro livro) {
+      this.livroDAO.atualizar(livro);
+      return "Livro atualizado com sucesso!";
+   }
+
+   public String excluirLivro(int id) {
+      this.livroDAO.excluir(id);
+      return "Livro exclu\u00eddo com sucesso!";
+   }
+
+   public Livro buscarLivro(int id) {
+      return (Livro)this.livroDAO.buscar(id);
+   }
+
+   public List<Livro> listarLivros() {
+      return this.livroDAO.listar();
+   }
+
+   public String alugarLivro(int aluguel) {
+      this.livroDAO.alugar(aluguel);
+      return "Livro alugado";
+   }
+}
