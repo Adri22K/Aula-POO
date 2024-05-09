@@ -1,0 +1,31 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+package com.biblioteca;
+
+import com.biblioteca.config.DBConfig;
+import com.biblioteca.controller.LivroController;
+import com.biblioteca.model.dao.LivroDAO;
+import com.biblioteca.view.LivroView;
+import java.util.Scanner;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application implements CommandLineRunner {
+   public Application() {
+   }
+
+   public static void main(String[] args) {
+      SpringApplication.run(Application.class, args);
+   }
+
+   public void run(String... args) throws Exception {
+      LivroView livroView = new LivroView();
+      LivroDAO livroDAO = new LivroDAO();
+      LivroController livroController = new LivroController(livroDAO);
+      DBConfig.createTables();
+      Scanner scanner = new Scanner(System.in);
+      SistemaBiblioteca sistema = new SistemaBiblioteca(livroController, livroView, scanner);
+      sistema.iniciar();
+   }
+}
