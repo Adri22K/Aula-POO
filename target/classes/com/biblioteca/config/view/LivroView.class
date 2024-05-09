@@ -1,0 +1,37 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+package com.biblioteca.view;
+
+import com.biblioteca.model.entity.Livro;
+import java.io.PrintStream;
+import java.util.Iterator;
+import java.util.List;
+
+public class LivroView {
+   public LivroView() {
+   }
+
+   public void mostrarDetalhesLivro(Livro livro) {
+      System.out.println("Detalhes do livro:");
+      System.out.println("ID: " + livro.getId());
+      System.out.println("T\u00edtulo: " + livro.getTitulo());
+      System.out.println("Autor: " + livro.getAutor());
+      System.out.println("N\u00famero de p\u00e1ginas: " + livro.getNumPaginas());
+   }
+
+   public void mostrarListaLivros(List<Livro> livros) {
+      System.out.println("Lista de livros:");
+      Iterator var3 = livros.iterator();
+
+      while(var3.hasNext()) {
+         Livro livro = (Livro)var3.next();
+         PrintStream var10000 = System.out;
+         int var10001 = livro.getId();
+         var10000.println("ID: " + var10001 + ", T\u00edtulo: " + livro.getTitulo());
+      }
+
+   }
+
+   public void mostrarMensagem(String mensagem) {
+      System.out.println(mensagem);
+   }
+}
