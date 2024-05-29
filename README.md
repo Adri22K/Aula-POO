@@ -27,7 +27,7 @@ Implementar um sistema simples que apresenta via CLI um menu de Biblioteca com a
 <div> 
   <h1>Tecnologias Utilizadas</h1>
 
-[![My Skills](https://skillicons.dev/icons?i=github,java,vscode)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=github,java,vscode,spring)](https://skillicons.dev)
  </div>
 <div>
 
